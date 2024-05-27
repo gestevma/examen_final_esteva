@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:examen_final_esteva/provider/firebase_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -35,8 +33,6 @@ class _ElementScreenBody extends StatelessWidget {
           children: [
             Stack(
               children: [
-                //Afegim la imatge
-                //ElementImage(url: FireBaseProvider.selectedPlat.foto),
                 Positioned(
                   top: 60,
                   left: 20,
@@ -105,7 +101,7 @@ class _ProductForm extends StatelessWidget {
               SizedBox(height: 30),
 
               /****descripcio*****/
-              TextFormField(
+              /*TextFormField(
                 initialValue: FireBaseProvider.selectedPlat.descripcio,
                 onChanged: (value) =>
                     FireBaseProvider.selectedPlat.descripcio = value,
@@ -167,7 +163,7 @@ class _ProductForm extends StatelessWidget {
                 title: Text('Disponible'),
                 activeColor: Colors.indigo,
                 onChanged: null,
-              ),
+              ),*/
             ],
           ),
         ),
@@ -232,21 +228,12 @@ class ElementImage extends StatelessWidget {
   //  2. Si hi ha imatge mostra la imatge del producte guardada a la base de dades
   //  3. Si hi ha imatge però encara no la hem recuperat de la base de dades mostrà un gif de imatge carregant
   Widget getImage(String? picture) {
-    if (picture == null)
-      return Image(
-        image: NetworkImage(
-            "https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/590.png"),
-        fit: BoxFit.cover,
-      );
-
-    if (picture.startsWith('http'))
-      return FadeInImage(
-          placeholder: NetworkImage(
-              "https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/590.png"),
-          image: NetworkImage(url!),
-          fit: BoxFit.cover);
-
-    return Image.file(File(picture), fit: BoxFit.cover);
+    return Image(
+      image: NetworkImage(url == null || url == ""
+          ? "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Imagen_no_disponible.svg/450px-Imagen_no_disponible.svg.png"
+          : url!),
+      fit: BoxFit.cover,
+    );
   }
 }
 
