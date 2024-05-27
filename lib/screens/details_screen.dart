@@ -101,7 +101,7 @@ class _ProductForm extends StatelessWidget {
               SizedBox(height: 30),
 
               /****descripcio*****/
-              /*TextFormField(
+              TextFormField(
                 initialValue: FireBaseProvider.selectedPlat.descripcio,
                 onChanged: (value) =>
                     FireBaseProvider.selectedPlat.descripcio = value,
@@ -163,7 +163,7 @@ class _ProductForm extends StatelessWidget {
                 title: Text('Disponible'),
                 activeColor: Colors.indigo,
                 onChanged: null,
-              ),*/
+              ),
             ],
           ),
         ),
